@@ -19,7 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class APIClient {
     private static final String BASE_URL = "https://plantaproductiondjango-542zh7peya-uc.a.run.app/";
 
-    private static Retrofit retrofit = null;
+    private static final String NEW_URL = "https://official-joke-api.appspot.com/jokes/";
+
 
 
     // Check if the device has Internet or not
@@ -33,7 +34,6 @@ public class APIClient {
             isConnected = true;
         return isConnected;
     }
-
     /*
        Get a cache-enabled Retrofit,
        with 10MB cache,
@@ -71,6 +71,40 @@ public class APIClient {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .baseUrl(BASE_URL)
+                .build();
+    }
+
+    public static Retrofit getCacheEnabledRetrofit2(final Context context) {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .cache(new Cache(context.getCacheDir(), 10 * 1024 * 1024))// Setting the cache size to 10MB
+
+                .connectTimeout(10, TimeUnit.SECONDS) //Sets the default connect timeout for new connections.
+                .readTimeout(20, TimeUnit.SECONDS) //Sets the default read timeout for new connections.
+                .writeTimeout(10, TimeUnit.SECONDS) //Sets the default write timeout for new connections.
+                .callTimeout(20, TimeUnit.SECONDS) //Sets the default timeout for complete calls.
+                .followSslRedirects(true) //Configure this client to follow redirects from HTTPS to HTTP and from HTTP to HTTPS.
+                .retryOnConnectionFailure(true) //Configure this client to retry or not when a connectivity problem is encountered.
+
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request();
+                        // If the device is connected to the Internet, fetch new data immediately
+                        if (hasNetwork(context))
+                            request = request.newBuilder().header("Cache-Control", "public, max-age=" + 1).build();
+                            // Else, load cached data that stays cached up to 7 days
+                        else
+                            request = request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build();
+                        return chain.proceed(request);
+                    }
+                }).build();
+
+        // Create the Retrofit instance with the above configuration
+        return new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(okHttpClient)
+                .baseUrl(NEW_URL)
                 .build();
     }
 }

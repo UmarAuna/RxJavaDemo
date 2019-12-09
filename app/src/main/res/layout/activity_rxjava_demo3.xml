@@ -8,6 +8,16 @@
     android:padding="10dp"
     tools:context=".RXJavaDemo3.ui.RXJavaDemo3">
 
+    <TextView
+        android:id="@+id/jokes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jokes"/>
+    <TextView
+        android:id="@+id/jokes2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jokes2"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/crop_list_recycler"
         android:layout_width="match_parent"
