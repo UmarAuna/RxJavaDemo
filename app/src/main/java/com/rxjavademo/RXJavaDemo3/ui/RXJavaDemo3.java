@@ -33,7 +33,7 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class RXJavaDemo3 extends AppCompatActivity {
-    private Disposable disposable;
+    private Disposable disposable, disposable2 = null;
     RecyclerView cropListRecycler;
     ProgressDialog progressDialog;
     APIService apiService, newapiService;
@@ -76,7 +76,7 @@ public class RXJavaDemo3 extends AppCompatActivity {
 
         disposable = Observable.interval(1000, 10000, TimeUnit.MILLISECONDS)
                 .doOnError(i -> isOnline(getApplicationContext()))
-                .debounce(500, TimeUnit.MILLISECONDS) // Avoid getting spammed with key stroke changes
+                //.debounce(500, TimeUnit.MILLISECONDS) // Avoid getting spammed with key stroke changes
                 .onErrorResumeNext(Observable.empty())// <-- This will terminate upstream (ie. we will stop receiving text view changes after an error!)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable -> {
@@ -86,9 +86,9 @@ public class RXJavaDemo3 extends AppCompatActivity {
                 }).subscribe(this::callCrops);
 
 
-        disposable = Observable.interval(1000, 10000, TimeUnit.MILLISECONDS)
+        disposable2 = Observable.interval(1000, 10000, TimeUnit.MILLISECONDS)
                 .doOnError(i -> isOnline(getApplicationContext()))
-                .debounce(500, TimeUnit.MILLISECONDS) // Avoid getting spammed with key stroke changes
+                //.debounce(500, TimeUnit.MILLISECONDS) // Avoid getting spammed with key stroke changes
                 .onErrorResumeNext(Observable.empty())// <-- This will terminate upstream (ie. we will stop receiving text view changes after an error!)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable -> {
@@ -174,7 +174,7 @@ public class RXJavaDemo3 extends AppCompatActivity {
 
             @Override
             public void onComplete() {
-                Toast.makeText(getApplicationContext(), "Completed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Completed Jokes", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
         };
@@ -187,7 +187,6 @@ public class RXJavaDemo3 extends AppCompatActivity {
             public void onNext(Results results) {
                 List<CropsItem> list_crop =results.getResults();
                 cropListRecycler.setAdapter(new CropsAdapter(getApplicationContext(),list_crop));
-                cropListRecycler.smoothScrollToPosition(0);
                 Log.d("CROP", results.toString());
             }
 
@@ -199,7 +198,7 @@ public class RXJavaDemo3 extends AppCompatActivity {
 
             @Override
             public void onComplete() {
-                Toast.makeText(getApplicationContext(), "Completed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Completed Crop", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
         };
@@ -212,6 +211,10 @@ public class RXJavaDemo3 extends AppCompatActivity {
             disposable = Observable.interval(1000, 5000, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::callCrops);
+        }else if(disposable2.isDisposed()){
+            disposable2 = Observable.interval(1000, 5000, TimeUnit.MILLISECONDS)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::callCrops);
         }
     }
 
@@ -220,6 +223,18 @@ public class RXJavaDemo3 extends AppCompatActivity {
         super.onPause();
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
+        }else if(disposable2 != null && !disposable2.isDisposed()){
+            disposable2.dispose();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }else if(disposable2 != null && !disposable2.isDisposed()){
+            disposable2.dispose();
         }
     }
 
@@ -228,6 +243,8 @@ public class RXJavaDemo3 extends AppCompatActivity {
         super.onDestroy();
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
+        }else if(disposable2 != null && !disposable2.isDisposed()){
+            disposable2.dispose();
         }
     }
 
