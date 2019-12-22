@@ -22,7 +22,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+ext {
+    dagger = "2.25.3"
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -30,18 +32,34 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     // RxJava2 Dependencies
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp:okhttp:2.5.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
+    //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
 
+    //OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+    implementation 'com.squareup.okio:okio:2.4.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+
+    // Dagger
+    api "com.google.dagger:dagger-android:$dagger"
+    api "com.google.dagger:dagger:$dagger"
+    api "com.google.dagger:dagger-android-support:$dagger"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+
+    //Glide
     implementation 'com.github.bumptech.glide:glide:4.10.0'
+
+    //Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 }

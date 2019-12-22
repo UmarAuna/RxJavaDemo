@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".RXJavaDemo4.ui.RXJavaDemo4">
+    tools:context=".RXJavaDemo4MVP.ui.RXJavaDemo4">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/crop_list_recycler_mvp"

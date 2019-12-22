@@ -7,8 +7,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".Dagger2Demo3MVP.util.MyApplication"
         android:allowBackup="true"
-         android:name=".RXJavaDemo4.utils.MyApp"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,20 +16,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RXJavaDemo4.ui.RXJavaDemo4">
+        <activity android:name=".Dagger2Demo3MVP.ui.Dagger2Demo3MVP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RXJavaDemo3.ui.RXJavaDemo3">
+        <activity android:name=".Dagger2Demo2.Dagger2Demo2" />
+        <activity android:name=".Dagger2Demo1.Dagger2Demo1">
 
         </activity>
+        <activity android:name=".RXJavaDemo4MVP.ui.RXJavaDemo4" />
+        <activity android:name=".RXJavaDemo3.ui.RXJavaDemo3" />
         <activity android:name=".RXJavaDemo2.FlatMapOperatorExample" />
         <activity android:name=".RXJavaDemo2.ObserveOnExample" />
         <activity android:name=".RXJavaDemo2.SubscribeOnExample" />
-        <activity android:name=".RXJavaDemo2.RXJavaDemo2"></activity>
+        <activity android:name=".RXJavaDemo2.RXJavaDemo2" />
         <activity android:name=".RXJavaDemo1.SchedulerActivity" />
         <activity android:name=".RXJavaDemo1.ColorsActivity" />
         <activity android:name=".RXJavaDemo1.BooksActivity" />

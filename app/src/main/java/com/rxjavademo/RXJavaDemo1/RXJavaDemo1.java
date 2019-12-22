@@ -14,7 +14,7 @@ Button first, second, third, fourth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rxjava_demo2);
+        setContentView(R.layout.activity_rxjava_demo1);
         first = findViewById(R.id.first);
         second = findViewById(R.id.second);
         third = findViewById(R.id.third);
