@@ -29,6 +29,7 @@ import javax.inject.Inject;
 
 public class Dagger2Demo3MVP extends AppCompatActivity implements Dagger2Demo3MVPContract.View, RecyclerViewAdapter.ClickListener {
     //https://www.journaldev.com/20654/android-mvp-dagger2-retrofit-rxjava
+    //Dagger2, MVP, Retrofit, RxJava2
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     Dagger2Demo3MVPComponent dagger2Demo3MVPComponent;

@@ -17,6 +17,7 @@ import java.util.List;
 
 public class RXJavaDemo4 extends AppCompatActivity implements UserContract.View {
     //https://www.freecodecamp.org/news/how-to-set-up-networking-in-your-android-app-with-retrofit-rxjava-mvp-108e7153521a/
+    //Retrofit, RXjava2, MVP
     private UserContract.Presenter mPresenter;
     private RecyclerView recyclerView;
     CropedAdapter cropedAdapter;

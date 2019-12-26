@@ -16,17 +16,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Dagger2Demo3MVP.ui.Dagger2Demo3MVP">
+        <activity android:name=".databindingdemo3.ui.DatabindingDemo3"></activity>
+        <activity android:name=".databindingdemo2.DatabindingDemo2" />
+        <activity android:name=".databindingdemo1.DatabindingDemo1" />
+        <activity android:name=".ListMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Dagger2Demo3MVP.ui.Dagger2Demo3MVP" />
         <activity android:name=".Dagger2Demo2.Dagger2Demo2" />
-        <activity android:name=".Dagger2Demo1.Dagger2Demo1">
-
-        </activity>
+        <activity android:name=".Dagger2Demo1.Dagger2Demo1" />
         <activity android:name=".RXJavaDemo4MVP.ui.RXJavaDemo4" />
         <activity android:name=".RXJavaDemo3.ui.RXJavaDemo3" />
         <activity android:name=".RXJavaDemo2.FlatMapOperatorExample" />

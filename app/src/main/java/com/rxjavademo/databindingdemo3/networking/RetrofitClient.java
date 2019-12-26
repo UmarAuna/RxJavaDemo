@@ -1,12 +1,8 @@
-package com.rxjavademo.RXJavaDemo4MVP.networking.adapter;
+package com.rxjavademo.databindingdemo3.networking;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.rxjavademo.databindingdemo3.networking.MoviesDataService;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -20,29 +16,19 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitAdapter {
+public class RetrofitClient {
     private static Retrofit retrofit;
-    private static Gson gson;
-    private static final String BASE_URL = "https://plantaproductiondjango-542zh7peya-uc.a.run.app/";
+    private static final String BASE_URL = "https://demo9072601.mockable.io/";
 
-    public static synchronized Retrofit getInstance() {
-
-        if (retrofit == null) {
-            if (gson == null) {
-                gson = new GsonBuilder().setLenient().create();
-            }
-
+    public static MoviesDataService getService(){
+        if(retrofit == null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build();
-
         }
-
-        return retrofit;
+        return retrofit.create(MoviesDataService.class);
     }
-
 
     // Check if the device has Internet or not
     public static Boolean hasNetwork(Context context) {
@@ -90,7 +76,6 @@ public class RetrofitAdapter {
         // Create the Retrofit instance with the above configuration
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .baseUrl(BASE_URL)
                 .build();

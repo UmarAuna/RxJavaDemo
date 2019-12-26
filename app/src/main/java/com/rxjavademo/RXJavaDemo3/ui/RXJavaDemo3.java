@@ -33,6 +33,7 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class RXJavaDemo3 extends AppCompatActivity {
+    //RXjava 2, Retrofit
     private Disposable disposable, disposable2 = null;
     RecyclerView cropListRecycler;
     ProgressDialog progressDialog;
