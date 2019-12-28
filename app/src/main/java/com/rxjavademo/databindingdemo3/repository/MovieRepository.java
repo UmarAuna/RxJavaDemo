@@ -1,5 +1,6 @@
 package com.rxjavademo.databindingdemo3.repository;
 
+import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.MutableLiveData;
@@ -24,8 +25,10 @@ public class MovieRepository {
     private static final String TAG = "MovieRepository";
     private ArrayList<MoviesItem> moviesItems = new ArrayList<>();
     private MutableLiveData<List<MoviesItem>> mutableLiveData = new MutableLiveData<>();
+    private Application application;
 
-    public MovieRepository(){
+    public MovieRepository(Application application){
+        this.application = application;
     }
 
 

@@ -16,7 +16,7 @@ public class MainViewModel extends AndroidViewModel {
 
     public MainViewModel(@NonNull Application application) {
         super(application);
-        movieRepository = new MovieRepository();
+        movieRepository = new MovieRepository(application);
     }
 
     public LiveData<List<MoviesItem>> getAllEmployee(){

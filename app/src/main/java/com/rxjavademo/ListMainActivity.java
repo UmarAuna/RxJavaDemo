@@ -19,6 +19,8 @@ import com.rxjavademo.RXJavaDemo3.ui.RXJavaDemo3;
 import com.rxjavademo.RXJavaDemo4MVP.ui.RXJavaDemo4;
 import com.rxjavademo.databindingdemo2.DatabindingDemo2;
 import com.rxjavademo.databindingdemo3.ui.DatabindingDemo3;
+import com.rxjavademo.lifecycleawaredemo1.LifecycleAwareDemo1;
+import com.rxjavademo.livedatademo1.ui.LiveDataDemo1;
 
 public class ListMainActivity extends AppCompatActivity {
     ListView listView;
@@ -27,7 +29,9 @@ public class ListMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
         String [] projects =
-                {"RXJavaDemo", "RXJavaDemo1", "RXJavaDemo2", "RXJavaDemo3", "RXJavaDemo4MVP","Dagger2Demo1", "Dagger2Demo2","Dagger2Demo3MVP", "DataBindingDemo1","DataBindingDemo2", "DataBindingDemo3"};
+                {"RXJavaDemo", "RXJavaDemo1", "RXJavaDemo2", "RXJavaDemo3", "RXJavaDemo4MVP",
+                        "Dagger2Demo1", "Dagger2Demo2","Dagger2Demo3MVP", "DataBindingDemo1",
+                        "DataBindingDemo2", "DataBindingDemo3", "LifecycleAwareDemo1", " LiveDataDemo1"};
 
         listView = findViewById(R.id.list_view);
 
@@ -61,6 +65,9 @@ public class ListMainActivity extends AppCompatActivity {
                     break;
                     case 10: startActivity(new Intent(ListMainActivity.this, DatabindingDemo3.class));
                     break;
+                    case 11: startActivity(new Intent(ListMainActivity.this, LifecycleAwareDemo1.class));
+                    break;
+                    case 12: startActivity(new Intent(ListMainActivity.this, LiveDataDemo1.class));
 
                 }
             }
