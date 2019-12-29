@@ -21,6 +21,9 @@ import com.rxjavademo.databindingdemo2.DatabindingDemo2;
 import com.rxjavademo.databindingdemo3.ui.DatabindingDemo3;
 import com.rxjavademo.lifecycleawaredemo1.LifecycleAwareDemo1;
 import com.rxjavademo.livedatademo1.ui.LiveDataDemo1;
+import com.rxjavademo.livedatademo2.LiveDataDemo2;
+import com.rxjavademo.mvvmdemo1.view.MVVMDemo1;
+import com.rxjavademo.viewmodeldemo1.ViewModelDemo1;
 
 public class ListMainActivity extends AppCompatActivity {
     ListView listView;
@@ -29,9 +32,9 @@ public class ListMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
         String [] projects =
-                {"RXJavaDemo", "RXJavaDemo1", "RXJavaDemo2", "RXJavaDemo3", "RXJavaDemo4MVP",
-                        "Dagger2Demo1", "Dagger2Demo2","Dagger2Demo3MVP", "DataBindingDemo1",
-                        "DataBindingDemo2", "DataBindingDemo3", "LifecycleAwareDemo1", " LiveDataDemo1"};
+                {"RXJavaDemo", "RXJavaDemo1", "RXJavaDemo2", "RXJavaDemo3", "RXJavaDemo4MVP", "Dagger2Demo1", "Dagger2Demo2",
+                        "Dagger2Demo3MVP", "DataBindingDemo1","DataBindingDemo2", "DataBindingDemo3", "LifecycleAwareDemo1",
+                        "LiveDataDemo1", "LiveDataDemo2", "ViewModelDemo1", "MVVMDemo1"};
 
         listView = findViewById(R.id.list_view);
 
@@ -68,6 +71,14 @@ public class ListMainActivity extends AppCompatActivity {
                     case 11: startActivity(new Intent(ListMainActivity.this, LifecycleAwareDemo1.class));
                     break;
                     case 12: startActivity(new Intent(ListMainActivity.this, LiveDataDemo1.class));
+                    break;
+                    case 13: startActivity(new Intent(ListMainActivity.this, LiveDataDemo2.class));
+                    break;
+                    case 14: startActivity(new Intent(ListMainActivity.this, ViewModelDemo1.class));
+                    break;
+                    case 15: startActivity(new Intent(ListMainActivity.this, MVVMDemo1.class));
+                    break;
+
 
                 }
             }

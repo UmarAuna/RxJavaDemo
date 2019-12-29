@@ -16,7 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".livedatademo1.ui.LiveDataDemo1"></activity>
+        <activity android:name=".mvvmdemo1.view.MVVMDemo1"></activity>
+        <activity android:name=".viewmodeldemo1.ViewModelDemo1" />
+        <activity android:name=".livedatademo2.LiveDataDemo2" />
+        <activity android:name=".livedatademo1.ui.LiveDataDemo1" />
         <activity android:name=".lifecycleawaredemo1.LifecycleAwareDemo1" />
         <activity android:name=".databindingdemo3.ui.DatabindingDemo3" />
         <activity android:name=".databindingdemo2.DatabindingDemo2" />
