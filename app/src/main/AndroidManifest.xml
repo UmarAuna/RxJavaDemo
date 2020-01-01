@@ -13,10 +13,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".mvvmdemo1.view.MVVMDemo1"></activity>
+        <activity android:name=".mvvmdemo2.views.ui.MVVMDemo2"></activity>
+        <activity android:name=".mvvmdemo2.view.ui.ProjectFragment" />
+        <activity android:name=".mvvmdemo1.view.MVVMDemo1" />
         <activity android:name=".viewmodeldemo1.ViewModelDemo1" />
         <activity android:name=".livedatademo2.LiveDataDemo2" />
         <activity android:name=".livedatademo1.ui.LiveDataDemo1" />

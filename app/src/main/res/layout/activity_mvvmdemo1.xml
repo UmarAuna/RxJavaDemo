@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/tools">
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
             name="viewModel"
-            type="com.rxjavademo.mvvmdemo1.viewmodel.LoginViewModel" />
+            type="com.rxjavademo.mvvmdemo1.viewmodel.LoginViewModelOld" />
+
+        <variable
+            name="viewModelNew"
+            type="com.rxjavademo.mvvmdemo1.viewmodel.LoginViewModelNew" />
     </data>
 
     <ScrollView
@@ -19,6 +24,12 @@
             android:layout_margin="8dp"
             android:orientation="vertical">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:error="@{viewModelNew.errorEmail}"
+                app:errorEnabled="true">
+
             <EditText
                 android:id="@+id/inEmail"
                 android:layout_width="match_parent"
@@ -26,7 +37,13 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"
-                android:text="@={viewModel.userEmail}" />
+                android:text="@={viewModelNew.email}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:error="@{viewModelNew.errorPassword}">
 
 
             <EditText
@@ -36,18 +53,24 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:text="@={viewModel.userPassword}" />
-
+                android:text="@={viewModelNew.password}" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:onClick="@{()-> viewModel.onLoginClicked()}"
-                android:text="LOGIN"
-                bind:toastMessage="@{viewModel.toastMessage}" />
-
-
+                android:onClick="@{()-> viewModelNew.onLoginClicked()}"
+                android:text="LOGIN"/>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:visibility="@{viewModelNew.busy}" />
         </LinearLayout>
 
     </ScrollView>

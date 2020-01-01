@@ -61,6 +61,18 @@ public class LiveDataDemo1 extends AppCompatActivity {
         });
     }
 
+
+  /*FOR FRAGMENTS
+  private void subscribeToModel() {
+        // Observe product data
+        viewModel.getObservableProduct().observe(getViewLifecycleOwner(), new Observer<Product>() {
+            @Override
+            public void onChanged(@Nullable Product product) {
+                mTitle.setText(product.title);
+            }
+        });
+    }*/
+
     private void prepareRecyclerView(List<Country> countryList){
         countryAdapter = new CountryAdapter(countryList);
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
