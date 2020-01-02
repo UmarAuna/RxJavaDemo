@@ -24,6 +24,8 @@ import com.rxjavademo.livedatademo1.ui.LiveDataDemo1;
 import com.rxjavademo.livedatademo2.LiveDataDemo2;
 import com.rxjavademo.mvvmdemo1.view.MVVMDemo1;
 import com.rxjavademo.mvvmdemo2.views.ui.MVVMDemo2;
+import com.rxjavademo.paginationdemo1.ui.PaginationDemo1;
+import com.rxjavademo.paginationdemo2.views.PaginationDemo2;
 import com.rxjavademo.viewmodeldemo1.ViewModelDemo1;
 
 public class ListMainActivity extends AppCompatActivity {
@@ -35,7 +37,7 @@ public class ListMainActivity extends AppCompatActivity {
         String [] projects =
                 {"RXJavaDemo", "RXJavaDemo1", "RXJavaDemo2", "RXJavaDemo3", "RXJavaDemo4MVP", "Dagger2Demo1", "Dagger2Demo2",
                         "Dagger2Demo3MVP", "DataBindingDemo1","DataBindingDemo2", "DataBindingDemo3", "LifecycleAwareDemo1",
-                        "LiveDataDemo1", "LiveDataDemo2", "ViewModelDemo1", "MVVMDemo1", "MVVMDemo2"};
+                        "LiveDataDemo1", "LiveDataDemo2", "ViewModelDemo1", "MVVMDemo1", "MVVMDemo2", "PagingDemo1","PaginationDemo2"};
 
         listView = findViewById(R.id.list_view);
 
@@ -80,6 +82,10 @@ public class ListMainActivity extends AppCompatActivity {
                     case 15: startActivity(new Intent(ListMainActivity.this, MVVMDemo1.class));
                     break;
                     case 16: startActivity(new Intent(ListMainActivity.this, MVVMDemo2.class));
+                    break;
+                    case 17: startActivity(new Intent(ListMainActivity.this, PaginationDemo1.class));
+                    break;
+                    case 18: startActivity(new Intent(ListMainActivity.this, PaginationDemo2.class));
                     break;
 
 

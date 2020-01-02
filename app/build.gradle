@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 
-def apikeyPropertiesFile = rootProject.file("secrets.properties");
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+def apikeyPropertiesFile = rootProject.file("secrets.properties")
 def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
@@ -14,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
         buildConfigField("String", "NEWS_KEY", apikeyProperties['NEWS_KEY'])
     }
     buildTypes {
@@ -52,22 +57,29 @@ dependencies {
     // lifecycle
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.1.0'
-    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0' // For Kotlin use kapt instead of annotationProcessor
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0'
+    // For Kotlin use kapt instead of annotationProcessor
+    kapt "androidx.lifecycle:lifecycle-compiler:2.1.0"
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.1.0'
 
 
     //Paging
-    implementation "androidx.paging:paging-runtime:$paging_version" // For Kotlin use paging-runtime-ktx
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    // For Kotlin use paging-runtime-ktx
     // alternatively - without Android dependencies for testing
-    testImplementation "androidx.paging:paging-common:$paging_version" // For Kotlin use paging-common-ktx
+    testImplementation "androidx.paging:paging-common:$paging_version"
+    // For Kotlin use paging-common-ktx
     // optional - RxJava support
-    implementation "androidx.paging:paging-rxjava2:$paging_version" // For Kotlin use paging-rxjava2-ktx
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+    // For Kotlin use paging-rxjava2-ktx
 
 
     //Room
     implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // For Kotlin use kapt instead of annotationProcessor
+    kapt "androidx.room:room-compiler:$room_version"
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
     // optional - RxJava support for Room
@@ -88,6 +100,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.7.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit-mock:2.7.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.0'
 
 
@@ -103,7 +116,8 @@ dependencies {
     api "com.google.dagger:dagger-android-support:$dagger"
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
-
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.10.0'
@@ -120,4 +134,7 @@ dependencies {
 
     //Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //Multidex
+    implementation 'com.android.support:multidex:1.0.3'
 }
