@@ -17,10 +17,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".paginationdemo2.views.PaginationDemo2"></activity>
+        <activity android:name=".roomdatabasedemo3.RoomDatabaseDemo3"
+                  android:theme="@style/AppTheme2"/>
+        <activity android:name=".roomdatabasedemo2.AddNoteActivity" />
+        <activity android:name=".roomdatabasedemo2.RoomDatabaseDemo2" />
+        <activity android:name=".roomdatabasedemo1.AddNewUser" />
+        <activity android:name=".roomdatabasedemo1.RoomDataBaseDemo1" />
+        <activity android:name=".paginationdemo2.views.PaginationDemo2" />
         <activity android:name=".paginationdemo1.ui.PaginationDemo1" />
         <activity android:name=".mvvmdemo2.views.ui.MVVMDemo2" />
-        <activity android:name=".mvvmdemo2.view.ui.ProjectFragment" />
         <activity android:name=".mvvmdemo1.view.MVVMDemo1" />
         <activity android:name=".viewmodeldemo1.ViewModelDemo1" />
         <activity android:name=".livedatademo2.LiveDataDemo2" />
