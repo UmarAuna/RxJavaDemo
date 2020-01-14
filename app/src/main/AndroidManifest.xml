@@ -1,61 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.rxjavademo">
+xmlns:tools="http://schemas.android.com/tools"
+package="com.rxjavademo">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
 
-    <application
-        android:name=".Dagger2Demo3MVP.util.MyApplication"
-        android:allowBackup="true"
-        android:fullBackupContent="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".roomdatabasedemo3.RoomDatabaseDemo3"
-                  android:theme="@style/AppTheme2"/>
-        <activity android:name=".roomdatabasedemo2.AddNoteActivity" />
-        <activity android:name=".roomdatabasedemo2.RoomDatabaseDemo2" />
-        <activity android:name=".roomdatabasedemo1.AddNewUser" />
-        <activity android:name=".roomdatabasedemo1.RoomDataBaseDemo1" />
-        <activity android:name=".paginationdemo2.views.PaginationDemo2" />
-        <activity android:name=".paginationdemo1.ui.PaginationDemo1" />
-        <activity android:name=".mvvmdemo2.views.ui.MVVMDemo2" />
-        <activity android:name=".mvvmdemo1.view.MVVMDemo1" />
-        <activity android:name=".viewmodeldemo1.ViewModelDemo1" />
-        <activity android:name=".livedatademo2.LiveDataDemo2" />
-        <activity android:name=".livedatademo1.ui.LiveDataDemo1" />
-        <activity android:name=".lifecycleawaredemo1.LifecycleAwareDemo1" />
-        <activity android:name=".databindingdemo3.ui.DatabindingDemo3" />
-        <activity android:name=".databindingdemo2.DatabindingDemo2" />
-        <activity android:name=".databindingdemo1.DatabindingDemo1" />
-        <activity android:name=".ListMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<application
+    android:name=".Dagger2Demo3MVP.util.MyApplication"
+    android:allowBackup="true"
+    android:fullBackupContent="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    android:usesCleartextTraffic="true"
+    tools:ignore="GoogleAppIndexingWarning">
+    <activity
+        android:name=".navigationcompdemo1.NavigationCompDemo1"
+        android:theme="@style/AppTheme2">
+        <nav-graph android:value="@navigation/app_navigation" />
+    </activity>
+    <activity
+        android:name=".roomdatabasedemo3.RoomDatabaseDemo3"
+        android:theme="@style/AppTheme2" />
+    <activity android:name=".roomdatabasedemo2.AddNoteActivity" />
+    <activity android:name=".roomdatabasedemo2.RoomDatabaseDemo2" />
+    <activity android:name=".roomdatabasedemo1.AddNewUser" />
+    <activity android:name=".roomdatabasedemo1.RoomDataBaseDemo1" />
+    <activity android:name=".paginationdemo2.views.PaginationDemo2" />
+    <activity android:name=".paginationdemo1.ui.PaginationDemo1" />
+    <activity android:name=".mvvmdemo2.views.ui.MVVMDemo2" />
+    <activity android:name=".mvvmdemo1.view.MVVMDemo1" />
+    <activity android:name=".viewmodeldemo1.ViewModelDemo1" />
+    <activity android:name=".livedatademo2.LiveDataDemo2" />
+    <activity android:name=".livedatademo1.ui.LiveDataDemo1" />
+    <activity android:name=".lifecycleawaredemo1.LifecycleAwareDemo1" />
+    <activity android:name=".databindingdemo3.ui.DatabindingDemo3" />
+    <activity android:name=".databindingdemo2.DatabindingDemo2" />
+    <activity android:name=".databindingdemo1.DatabindingDemo1" />
+    <activity android:name=".navigationbottom.NavigationBottom"/>
+    <activity android:name=".ListMainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Dagger2Demo3MVP.ui.Dagger2Demo3MVP" />
-        <activity android:name=".Dagger2Demo2.Dagger2Demo2" />
-        <activity android:name=".Dagger2Demo1.Dagger2Demo1" />
-        <activity android:name=".RXJavaDemo4MVP.ui.RXJavaDemo4" />
-        <activity android:name=".RXJavaDemo3.ui.RXJavaDemo3" />
-        <activity android:name=".RXJavaDemo2.FlatMapOperatorExample" />
-        <activity android:name=".RXJavaDemo2.ObserveOnExample" />
-        <activity android:name=".RXJavaDemo2.SubscribeOnExample" />
-        <activity android:name=".RXJavaDemo2.RXJavaDemo2" />
-        <activity android:name=".RXJavaDemo1.SchedulerActivity" />
-        <activity android:name=".RXJavaDemo1.ColorsActivity" />
-        <activity android:name=".RXJavaDemo1.BooksActivity" />
-        <activity android:name=".RXJavaDemo1.RxJavaSimpleActivity" />
-        <activity android:name=".RXJavaDemo1.RXJavaDemo1" />
-        <activity android:name=".MainActivity" />
-    </application>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".Dagger2Demo3MVP.ui.Dagger2Demo3MVP" />
+    <activity android:name=".Dagger2Demo2.Dagger2Demo2" />
+    <activity android:name=".Dagger2Demo1.Dagger2Demo1" />
+    <activity android:name=".RXJavaDemo4MVP.ui.RXJavaDemo4" />
+    <activity android:name=".RXJavaDemo3.ui.RXJavaDemo3" />
+    <activity android:name=".RXJavaDemo2.FlatMapOperatorExample" />
+    <activity android:name=".RXJavaDemo2.ObserveOnExample" />
+    <activity android:name=".RXJavaDemo2.SubscribeOnExample" />
+    <activity android:name=".RXJavaDemo2.RXJavaDemo2" />
+    <activity android:name=".RXJavaDemo1.SchedulerActivity" />
+    <activity android:name=".RXJavaDemo1.ColorsActivity" />
+    <activity android:name=".RXJavaDemo1.BooksActivity" />
+    <activity android:name=".RXJavaDemo1.RxJavaSimpleActivity" />
+    <activity android:name=".RXJavaDemo1.RXJavaDemo1" />
+    <activity android:name=".MainActivity" />
+</application>
 
 </manifest>

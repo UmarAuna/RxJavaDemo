@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:icon="@drawable/ic_location"
+        android:title="Location" />
+
+    <item
+        android:enabled="false"
+        android:title="@null" />
+
+    <item
+        android:icon="@drawable/ic_feed"
+        android:title="Feeds" />
+
+    <item
+        android:icon="@drawable/ic_contacts"
+        android:title="Contacts" />
+
+</menu>
